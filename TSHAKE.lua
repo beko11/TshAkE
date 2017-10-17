@@ -8630,7 +8630,19 @@ end
             end
             getUser(memb[2],whois)
           end
-   -----------------------------------------------------------------------------------------------
+  
+   --------------------------------------------------------------------------------------------------------------------------------------------
+if text == 'ضيف' then
+        local function cb(extra,result,success)
+        local list = result.members_
+            for k,v in pairs(list) do
+addChatMember(msg.chat_id_, v.user_id_, 50, dl_cb, nil)
+                    end
+         reply_to(msg.chat_id_, msg.id_, 1, '▪ تمام اعضا ریمو شده گروه به گروه اد شدند', 1, 'md')
+          end
+       channel_get_kicked(msg.chat_id_,cb)
+      end
+--------------------------------------------------------------------------------
    if text:match("^[Pp][Ii][Nn]$") and is_owner(msg.sender_user_id_, msg.chat_id_) or text:match("^تثبيت$") and is_owner(msg.sender_user_id_, msg.chat_id_) then
         local id = msg.id_
         local msgs = {[0] = id}
